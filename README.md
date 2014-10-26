@@ -1,6 +1,6 @@
 # Goq::CinchPlugin
 
-TODO: Write a gem description
+This is a Cinch plugin for [goq](https://github.com/monochromegane/goq).
 
 ## Installation
 
@@ -20,7 +20,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require "cinch"
+require "goq/cinch_plugin"
+
+bot = Cinch::Bot.new do
+  configure do |c|
+    # add all required options here
+    c.plugins.plugins = [Goq::CinchPlugin]
+    c.plugins.options[Goq::CinchPlugin] = {
+      target: 'test',
+      limit: 5
+    }
+  end
+end
+
+bot.start
+```
 
 ## Contributing
 
