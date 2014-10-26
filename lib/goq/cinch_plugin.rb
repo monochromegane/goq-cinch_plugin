@@ -8,12 +8,12 @@ module Goq
     match(/^goq list/, method: :list, use_prefix: false)
 
     def query(m, query)
-      result = `goq test #{query}`
+      result = `goq #{config[:target]} #{query}`
       m.reply result
     end
 
     def list(m)
-      list = `goq --list test`
+      list = `goq --list #{config[:target]}`
       m.reply list
     end
   end
