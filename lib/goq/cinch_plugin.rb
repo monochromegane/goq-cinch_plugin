@@ -9,6 +9,7 @@ module Goq
 
     def query(m, query)
       result = `goq #{config[:target]} #{query}`
+      result = "Too many much..." if result.count("\n") > config[:limit]
       m.reply result
     end
 
